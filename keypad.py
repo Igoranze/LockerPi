@@ -95,8 +95,9 @@ def main():
             time.sleep(10)
             door.off()
             led.off()
+            code = ""
             print("Door is closed")
-            
+
         print("code: {}".format(code))
 
         time.sleep(0.1)
