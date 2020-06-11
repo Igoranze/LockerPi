@@ -20,14 +20,13 @@ def get_pressed_key(keys, led):
     If there are more than 1 keys pressed, then return nothing... and blink the led 3 times
     else return the key and blink 1 time
     """
+    result = None
+
     if keys is None or len(keys) > 1:
         blink_led(0.1, led)
         blink_led(0.1, led)
         blink_led(0.1, led)
-        return None
-
-    result = None
-    if keys:
+    elif keys:
         result = str(keys[0])
         blink_led(0.1, led)
         print(result)
@@ -92,10 +91,12 @@ def main():
             code = code + key_pressed
 
         if check_code(code, door, led):
+            print("Door is now open for 10 seconds")
             time.sleep(10)
             door.off()
             led.off()
-
+            print("Door is closed")
+            
         print("code: {}".format(code))
 
         time.sleep(0.1)
